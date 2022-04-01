@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.comPage {padding: 50px;}
+.comPage .title {text-align: center;}
+.comPage .title a {padding: 10px; background: #888;
+                   color: #fff; display: inline-block;}
+.comPage .title a.on {background: #397dda; }
+#container {min-height: 800px; background: greenyellow;}
+#content {height: 800px; border: 1px solid #000;}

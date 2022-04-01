@@ -1,0 +1,88 @@
+@media screen and (max-width: 1100px){
+    #header .nav .depth1 > li > a {display: block; padding: 30px 35px; font-size: 17px; 
+                                   text-align: center; font-weight: bold}
+
+}   /* 전체 닫는 괄호 */
+
+
+@media screen and (max-width: 1024px) {
+    #header h1 {padding: 20px 0; margin-left: 30px}
+    #header .open {display: block; position: absolute; top: 50%; right: 20px; 
+                   width: 23px; height: 18px; margin-top: -9px;}
+    #header .open.on {margin-top: -2px;}
+    #header .open span:nth-child(2), #header .open span:nth-child(3), 
+    #header .open span:nth-child(4) {position: absolute; width: 23px; height: 3px; 
+                                     background: #555; border-radius: 10px;}
+    #header .open span:nth-child(2) {top: 0; transition: all 0.3s;}
+    #header .open.on span:nth-child(2) {bottom: 0; transform: rotate(45deg);}
+    #header .open span:nth-child(3) {top: 50%; transform: translateY(-50%); opacity: 1; 
+                                     transition: all 0.3s;}
+    #header .open.on span:nth-child(3) {top: 50%; transform: translateY(-50%); opacity: 0;}
+    #header .open span:nth-child(4) {bottom: 0; transition: all 0.3s;}
+    #header .open.on span:nth-child(4) {top: 0; transform: rotate(-45deg)}
+    #header .nav {position: absolute; top: 100%; right: 0; z-index: 999999; 
+                  background: #fff; padding: 10px 0px 20px; width: 200px; display: none;}
+    #header .nav.on {display: block}
+    #header .nav .depth1 > li {float: none; position: relative;}
+    #header .nav .depth1 > li > a {display: block; padding: 15px 20px; font-size: 17px; 
+                                   text-align: left; font-weight: bold}
+    #header .nav .depth1 > li.on > a {color: #397dda}
+    .depth2 {position: static; top: 100%; width: 140%; left: 50%; transform: translate(0%);
+             text-align: left; background: #fff; font-size: 12px; height: 0; 
+             overflow: hidden; transition: all 0.5s;}
+    #header .nav .depth1 > li.on .depth2 {height: auto;}
+    #header .nav .depth2 > li > a {display: block; padding: 13px 30px; font-weight: bold; }
+    /* 슬릭슬라이드  */
+    /* 버튼 : 막대 -> 동그라미 */
+    .article1 .slide_group .slick-dots {position: absolute; bottom: 30px; left: 50%; transform: translate(-50%);}
+    .article1 .slide_group .slick-dots li {display: inline-block; margin: 0 5px; width: auto; height: auto; 
+                                           background: none; position: relative;}
+    .article1 .slide_group .slick-dots li button {width: 15px; height: 15px; background: rgba(255,255,255,0.5);
+                                                  border: none; text-indent: -9999px; overflow: hidden;
+                                                  position: static; top: 0; left: 0; border-radius: 50%;}
+    .article1 .slide_group .slick-dots li.slick-active button {animation: none 3s both; background: rgba(255,255,255,1)}
+    /* 슬라이드 <> 버튼 */
+    .article1 {position: relative;}
+    .article1 .playstop {position: absolute; bottom: 30px; left: 50%; transform: translate(60px) scale(1.1); 
+                         color: #fff; background: none; border: none;}
+    /* COMPANY INTRODUCE 구역 */
+    .article2 ul li {float: left; width: 50%; text-align: center; margin-right: 0; margin-top: 60px;}
+    .article3 .txtbox p:nth-child(2) {font-size: 13px; font-weight: 600; line-height: 20px; 
+                                      background:#397dda; padding-top: 20px;}
+
+    .article6 .cont img {float: left; width: 33.33%; padding: 10px;}
+    
+    /* footer구역 */
+    #footer p:nth-child(2) span {display: block;}
+    #footer p:nth-child(2) span.hide {display: none;}
+
+
+
+}   /* 전체 닫는 괄호 */
+
+
+@media screen and (max-width: 500px) {
+    .article1 .slide_group .slide .txt h2 {font-size: 34px; font-weight: bold; text-shadow: 0px 0px 4px #555;
+                                           margin-bottom: 25px;}
+    .article1 .slide_group .slide .txt p {font-size: 15px; line-height: 1.8; font-weight: bold; 
+                                          text-shadow: 0px 0px 4px #555;}
+    .article2 ul li {float: left; width: 100%; text-align: center; margin-right: 0; margin-top: 60px;}
+    #section .comment span {display: block;}
+    #section .comment span.hide {display: none;}
+    /* BUSINESS INDUSTRY 구역 */
+    .article3 ul li {float: left; width: 100%; margin-right: 100%; margin-top: 60px; text-align: center;}
+    .article3 .imgbox img {transition: all 0.5s; width: 100%;} 
+    .article3 .txtbox p:nth-child(2) {font-size: 13px; font-weight: 600; line-height: 20px; 
+                                      background:#397dda; padding-top: 20px; }
+    
+    .article6 .cont img {float: left; width: 50%; padding: 10px;}
+
+    /* footer 구역 */
+    #footer {background: #303030; padding: 0px 0 15px; text-align: center; 
+             color: #8d8b8b; font-size: 12px;}
+    #footer .row {padding: 0;}
+    #footer p:nth-child(1) a {font-weight: bold; display:block; font-size: 13px; 
+                              color: #fff; padding: 15px 0px 15px 0px; background: #707070;
+                              border-top: 1px solid #999;}
+
+}   /* 전체 닫는 괄호 */

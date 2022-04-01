@@ -1,0 +1,220 @@
+@charset "utf-8";
+
+.row {max-width: 1000px; margin: 0 auto; padding: 0 10px;}
+body {color: #555;}
+* {outline: none;}
+
+/* header */
+#header {border-bottom: 0px solid #ddd;}
+#header.on {position: fixed; width: 100%; top: 0; left: 0; z-index: 999999; background: #fff;}
+#header > div {max-width: 1200px; margin: 0 auto; position: relative;}
+#header h1 {padding: 20px 0; margin-left: 70px }
+/* 블록요소들을 한줄로 정렬할때 float 정렬 대신 position:absolute를 사용할 때는
+  둘중에 키가 작은 요소에 적용한다.
+*/
+#header .open {display: none}
+#header .nav {position: absolute; top: 13px; right: 30px; z-index: 9999; }
+#header .nav .depth1 > li {float: left; position: relative}
+#header .nav .depth1 > li > a {display: block; padding: 30px 45px; font-size: 17px; 
+                               text-align: center; font-weight: bold}
+.depth2 {position: absolute; top: 100%; width: 140%; left: 50%; transform: translate(-50%);
+         text-align: center; background: #fff; font-size: 12px; height: 0; 
+         overflow: hidden; transition: all 0.5s;}
+#header .nav .depth1 > li:nth-child(1).on .depth2 {height: 76px;}
+#header .nav .depth1 > li:nth-child(2).on .depth2 {height: 76px;}
+#header .nav .depth1 > li:nth-child(3).on .depth2 {height: 38px;}
+#header .nav .depth1 > li:nth-child(4).on .depth2 {height: 38px;}
+#header .nav .depth1 > li:nth-child(5).on .depth2 {height: 114px;}
+#header .nav .depth2 > li > a {display: block; padding: 13px 0px; font-weight: bold; }
+#header .nav .depth2 > li:hover > a {background :#397dda; color :#fff;}
+
+
+/* section */
+/* slide구역 */
+/* .article1 {margin-top: 90px;} */
+.article1 .slide_group {position: relative;}
+.article1 .slide_group .slick-arrow {position: absolute; top: 50%; transform: translateY(-50%);
+                                     background: #fff; border: none; z-index: 9999;
+                                     font-size: 30px; color: #000; width: 50px; height: 50px;
+                                     border-radius: 50%; transition: all 0.5s;text-align: left;
+                                     padding-left: 15px; opacity: 0;}
+.article1 .slide_group .slick-arrow:hover {width: 150px; border-radius: 50px;}
+.article1 .slide_group .slick-arrow span {display: none; font-size: 30px;}
+.article1 .slide_group:hover .slick-arrow {opacity: 1;}                               
+.article1 .slide_group .slick-arrow:hover span {display: inline;}
+.article1 .slide_group .prev {left: 100px; }
+.article1 .slide_group .next {right: 100px;}
+.article1 .slide_group .slick-dots {position: absolute; bottom: 30px; left: 50%; transform: translate(-50%);}
+
+/* 동그라미 버튼 */
+/* .article1 .slide_group .slick-dots li {display: inline-block; margin: 0 5px;}
+.article1 .slide_group .slick-dots li button {width: 20px; height: 20px; border-radius: 50%; background:  rgba(255,255,255,0.5);
+                                              border: none; text-indent: -9999px; overflow: hidden;}
+.article1 .slide_group .slick-dots li.slick-active button {background:  rgba(255,255,255,1);} */
+/* 막대 버튼 애니메이션 */
+.article1 .slide_group .slick-dots li {display: inline-block; margin: 0 5px; width: 100px; height: 2px; 
+                                       background: #999; position: relative;}
+.article1 .slide_group .slick-dots li button {width: 0px; height: 2px; background: red;
+                                              border: none; text-indent: -9999px; overflow: hidden;
+                                              position: absolute; top: 0; left: 0;}
+.article1 .slide_group .slick-dots li.slick-active button {animation: barani 3s both;}
+/* @-o-keyframes barani {from {width: 0;} to {width: 100px;}}
+@-moz-keyframes barani {from {width: 0;} to {width: 100px;}}
+@-webkit-keyframes barani {from {width: 0;} to {width: 100px;}} */
+@keyframes barani {from {width: 0;} to {width: 100px;}}
+
+/* 슬라이드 자동재생/멈춤 버튼 */
+.article1 {position: relative;}
+.article1 .slide {position: relative;}
+.article1 .playstop {position: absolute; bottom: 25px; left: 50%; transform: translate(225px) scale(1.2); 
+                     color: #fff; background: none; border: none;}
+.article1 .slide_group .slide1 .img {height: 750px; background: url(../img/main01.jpg) no-repeat center;
+                                     background-size: cover;}
+.article1 .slide_group .slide2 .img {height: 750px; background: url(../img/main02.jpg) no-repeat center;
+                                     background-size: cover;}
+.article1 .slide_group .slide3 .img {height: 750px; background: url(../img/main03.jpg) no-repeat center;
+                                     background-size: cover;}
+.article1 .slide_group .slide4 .img {height: 750px; background: url(../img/main04.jpg) no-repeat center;
+                                     background-size: cover;}
+.article1 .slide_group .slide.slick-active .img {animation: slideImg 5s both;}
+@keyframes slideImg {
+  from {transform: scale3d(1,1,1)}
+  to {transform: scale3d(1.3,1.3,1.3)}
+}
+.article1 .slide_group .slide .txt {position: absolute; top: 50%; left: 0%;  right: 0; color :#fff;
+                                    text-align: center; transform: translateY(-50%);}
+.slide_group .slide.slick-cloned .txt {opacity: 0;}
+.article1 .slide_group .slide .txt h2 {font-size: 50px; font-weight: bold; text-shadow: 0px 0px 4px #555;
+                                       margin-bottom: 25px;}
+.article1 .slide_group .slide.slick-active .txt h2 {animation: fadeInDown 0.5s both 0.6s;}
+.article1 .slide_group .slide .txt p {font-size: 17px; line-height: 1.8; font-weight: bold; 
+                                      text-shadow: 0px 0px 4px #555;}
+.article1 .slide_group .slide.slick-active .txt p {animation: fadeInUp 0.5s both 0.6s;}
+
+/* COMPANY INTRODUCE 구역 */
+.article2 {padding-top: 61px; padding-bottom: 61px;}
+#section .title2 {text-align: center;  color: #555555; font-size: 35px; font-weight: 600; 
+                  line-height: 50px; position:relative;}
+#section .title2::before {content:''; width: 100px; height: 1px; background: #397dda;
+                          position: absolute; top: 0px; left: 50%; transform: translate(-50%); }
+#section .comment {text-align: center; color: #777777; font-size: 15px; font-weight: 400;
+                            line-height: 25px; padding-top: 19px; }
+#section .article2 .title2, #section .article2 .comment, .article2 ul li {opacity: 0;
+                                                                          -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0);}               
+#section .article2.on .title2 {animation: fadeInUp 0.3s both}
+#section .article2.on .comment {animation: fadeInUp 0.3s both 0.3s}
+.article2.on ul li:nth-child(1) {animation: fadeInUp 0.3s both 0.6s}
+.article2.on ul li:nth-child(2) {animation: fadeInUp 0.3s both 0.8s}
+.article2.on ul li:nth-child(3) {animation: fadeInUp 0.3s both 1s}
+.article2.on ul li:nth-child(4) {animation: fadeInUp 0.3s both 1.2s}
+.article2 ul li {float: left; width: 23%; text-align: center; margin-right: 2.6666%; margin-top: 60px;
+                 transition: all 0.3s;}
+.article2 ul li:nth-child(4) {margin-right: 0%;}
+.article2 ul li > div {background:#323232; display: inline-block; border-radius:50%; overflow:hidden;
+                       transition:all 0.3s ease-out;}
+.article2 ul li > div:hover {background:#fe0000; transition:all 0.3s ease-in;}
+.article2 ul li > h3 {color: #424242; font-size: 17px; font-weight: 600; line-height: 22px;
+                      text-align: center; padding-top: 35px;}
+.article2 ul li > p {color: #777777; font-size: 12px; line-height: 20px;
+                     text-align: center; padding-top: 15px; padding-bottom: 18px;  
+                     padding-left: 30px; padding-right: 30px; letter-spacing: -1px;}
+.article2 ul li > a {display: inline-block; color: #1e1e1e; font-size: 12px;
+                     padding: 10px 46px 10px 46px; border: 1px solid #1e1e1e;}
+
+/* BUSINESS INDUSTRY 구역 */
+#section .article3 {background: url(../img/bg_business.jpg) no-repeat center; 
+                    background-size: cover; color: #fff; padding-top: 61px; 
+                    padding-bottom: 61px; overflow: hidden;}
+#section .article3 .title2, #section .article3 .comment {color:#fff; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); 
+                                                        transform: translate3d(0, 100%, 0); transition: all 0.3s;}
+#section .article3 ul li:nth-child(1) {color:#fff; opacity: 0; -webkit-transform: translate3d(-100%, 0, 0); 
+                                        transform: translate3d(-100%, 0, 0); transition: all 0.3s;}           
+#section .article3 ul li:nth-child(2) {color:#fff; opacity: 0; -webkit-transform: translate3d(0, 100%, 0); 
+                                       transform: translate3d(0, 100%, 0); transition: all 0.3s;}  
+#section .article3 ul li:nth-child(3) {color:#fff; opacity: 0; -webkit-transform: translate3d(0, 0, 100%); 
+                                       transform: translate3d(0, 0, 100%); transition: all 0.3s;}  
+#section .article3.on .title2 {animation: fadeInUp 0.3s both }
+#section .article3.on .comment {animation: fadeInUp 0.3s both 0.3s} 
+#section .article3.on ul li:nth-child(1) {animation: fadeInLeft 0.3s both 0.6s}
+#section .article3.on ul li:nth-child(2) {animation: fadeInUp 0.3s both 0.8s}
+#section .article3.on ul li:nth-child(3) {animation: fadeInRight 0.3s both 1s}
+#section .article3 .title2::before {background:#fff;}
+#section .article3 ul li {float: left; width: 30.33%; margin-right: 4.505%; 
+                          margin-top: 60px; text-align: center;}    
+#section .article3 ul li:nth-child(3) {margin-right: 0%;}    
+.article3 .imgbox {position: relative; overflow: hidden;}
+.article3 .imgbox .line {position: absolute; top: 10px; bottom: 10px; right: 10px; left: 10px; }
+.article3 .imgbox .line .topline {position: absolute; left: 0; right: 100%; top:0;
+                                  height: 2px; background: #fff; z-index: 999999;
+                                  transition: all 0.5s ease-out;}
+.article3 .imgbox .line .bottomline {position: absolute; left: 100%; right: 0; bottom: 0;
+                                     height: 2px; background: #fff; z-index: 999999;
+                                     transition: all 0.5s ease-out;}
+.article3 .imgbox .line .leftline {position: absolute; right: 0; top: 100%; bottom: 0;
+                                    width: 2px; background: #fff; z-index: 999999;
+                                    transition: all 0.5s ease-out;}
+.article3 .imgbox .line .rightline {position: absolute; left: 0; top: 0; bottom: 100%;
+                                    width: 2px; background: #fff; z-index: 999999;
+                                    transition: all 0.5s ease-out;}
+.article3 .imgbox:hover .line .topline {right: 0}
+.article3 .imgbox:hover .line .bottomline {left: 0;}
+.article3 .imgbox:hover .line .leftline {top: 0;}
+.article3 .imgbox:hover .line .rightline {bottom: 0;}
+.article3 .imgbox::before {content: ''; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
+                           background: rgba(0,0,0,0); transition: all 0.5s; z-index: 1} 
+.article3 .imgbox:hover::before {background: rgba(0,0,0,0.5);} 
+.article3 .imgbox .sbox {position: absolute; z-index: 2; top: 50%; left: 50%; 
+                         transform: translate(-50%, -50%); opacity: 0; transition: all 0.5s;}
+.article3 .imgbox:hover .sbox {opacity: 1;}
+.article3 .imgbox .sbox p:nth-child(1) {font-size: 14px; font-weight: 600; line-height: 22px;}
+.article3 .imgbox .sbox p:nth-child(2) {font-size: 13px; line-height: 20px; padding-top: 15px; padding-bottom: 18px;}
+.article3 .imgbox img {transition: all 0.5s;} 
+.article3 .imgbox:hover img {transform: scale(1.4);}
+.article3 .txtbox {font-size: 14px; font-weight: 600; line-height: 22px; background :#397dda; 
+                   padding: 15px 28px;}
+.article3 .txtbox p:nth-child(2) {font-size: 13px; font-weight: 600; line-height: 20px; 
+                                  background:#397dda; padding-top: 20px;}
+
+/* 지도 구역 */                                  
+.article4 {padding-top: 61px;}
+.article4 .map {height: 270px; margin-top: 20px}
+
+/* GALLERY 구역 */
+.article5 {padding: 61px 50px;}
+.article5 .slide_group2 {position: relative; margin-top: 20px;}
+.article5 .slide_group2 .slick-arrow {position: absolute; top: 50%; transform: translateY(-50%);
+                                      background: none; border: none; z-index: 9999;
+                                      font-size: 40px; color: #333; }
+.article5 .slide_group2 .prev {left: -40px;}
+.article5 .slide_group2 .next {right: -40px;}
+      /* 미니슬라이드 간격은 .slide에서 padding으로 해결함 */                        
+.article5 .slide_group2 .slide {transform: scale(0.85); opacity: 0.6; transition: all 0.5s; padding: 0 5px;}
+.article5 .slide_group2 .slide img {width: 100%;} 
+.article5 .slide_group2 .slick-active {opacity: 1;}
+.article5 .slide_group2 .slick-current {transform: scale(1);}
+.article5 .slide_group2 .slick-current > img {border-radius: 20px; border: 3px solid green }
+
+/* article6 구역 */
+.article6 .title li {display: inline-block;}
+.article6 .title li a {display: block; padding: 10px 20px; background: green; color: #fff;
+                       border-radius: 5px;}
+.article6 .cont {margin: 20px 0 50px;}                       
+.article6 .cont img {float: left; width: 25%; padding: 10px;}
+.article6 .cont img.active {animation: zoomIn 0.5s both;}
+
+
+
+
+/* footer */
+#footer {background: #303030; padding: 25px 0 15px; text-align: center; 
+         color: #8d8b8b; font-size: 12px;}
+#footer p:nth-child(1) a {font-weight: bold; display: inline-block; font-size: 13px; 
+                          color: #ccc; padding: 0px 3px 0px 8px;}
+#footer p:nth-child(2) {margin-top: 17px; margin-bottom: 9px; line-height: 1.6;}
+.gotop {position: fixed; bottom: 15%; right: 10%; color: #fff;
+          background-color: rgba(0,0,0,0.7); display: inline-block;  
+          width: 42px; height: 42px; text-align: center; line-height: 42px; 
+          font-size: 12px; opacity: 0; transition: all 0.3s;}
+.gotop.on {opacity: 1;}         
+.gotop a {display: block;}
+.gotop a:hover {background: orange;}
